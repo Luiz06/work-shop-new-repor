@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WebWorkShop.Models;
+using WebWorkShop.Models.ViewModels;
 
 namespace WebWorkShop.Controllers
 {
@@ -18,6 +18,7 @@ namespace WebWorkShop.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
+            ViewData["email"] = "Teste.txt";
 
             return View();
         }
