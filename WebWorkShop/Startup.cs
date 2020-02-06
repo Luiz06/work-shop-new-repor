@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using WebWorkShop.Models;
 using WebWorkShop.Data;
+using WebWorkShop.Services;
 
 namespace WebWorkShop
 {
@@ -42,6 +43,8 @@ namespace WebWorkShop
                     builder.MigrationsAssembly("WebWorkShop")));
 
             services.AddScoped<SeedingService>();
+            services.AddScoped<SellerService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
