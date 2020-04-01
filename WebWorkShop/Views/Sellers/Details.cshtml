@@ -1,0 +1,72 @@
+﻿@model WebWorkShop.Models.Seller
+@{
+    ViewData["Title"] = "Details";
+}
+<style>
+    dt {
+        text-align: left !important;
+        background-color: #e4e4e4;
+        border: 2px solid #fff;
+        height: 50px;
+        padding: 15px;
+    }
+
+    dd {
+        text-align: left !important;
+        margin-left: 150px !important;
+        background-color: #e4e4e4;
+        border: 2px solid #fff;
+        height: 50px;
+        padding: 15px;
+    }
+</style>
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>
+    Only show details
+</h3>
+<hr />
+
+<h4>
+    Seller
+</h4>
+
+<div class="form-group">
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BaseSalary)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BaseSalary)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Department.Name)
+        </dd>
+
+    </dl>
+
+    <a asp-action="Index" class="btn btn-default">Back to list</a>
+</div>

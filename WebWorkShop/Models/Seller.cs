@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace WebWorkShop.Models
@@ -7,11 +8,16 @@ namespace WebWorkShop.Models
     public class Seller
     {
         public int Id { get; set; }
+        [Display(Name = "Nome")]
         public string Name { get; set; }
+        [Display(Name = "Email Address")]
         public string Email { get; set; }
+        [Display(Name = "Birth Date")]
         public DateTime BirthDate { get; set; }
+        [Display(Name = "Base Salary ")]
         public double BaseSalary { get; set; }
         public Department Department { get; set; }
+        public int DepartmentId { get; set; }
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
         public Seller()

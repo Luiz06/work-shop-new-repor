@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebWorkShop.Models;
 
 namespace WebWorkShop.Migrations
 {
     [DbContext(typeof(WebWorkShopContext))]
-    partial class WebWorkShopContextModelSnapshot : ModelSnapshot
+    [Migration("20200326194216_DepartmentFK")]
+    partial class DepartmentFK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
