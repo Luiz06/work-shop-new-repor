@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using WebWorkShop.Models;
 using Microsoft.EntityFrameworkCore;
 using WebWorkShop.Services.Excepitons;
+using WebWorkShop.Services.Exceptions;
 
 namespace WebWorkShop.Services
 {
@@ -35,9 +36,16 @@ namespace WebWorkShop.Services
 
         public async Task RemoveAsync(int id)
         {
-            var obj = await _context.Seller.FindAsync(id);
-            _context.Seller.Remove(obj);
-            await _context.SaveChangesAsync();
+            try
+            {
+                var obj = await _context.Seller.FindAsync(id);
+                _context.Seller.Remove(obj);
+                await _context.SaveChangesAsync();
+
+            }catch(DbUpdateException e)
+            {
+                throw new IntegrityException("Não posso deletar o vendedor pois há vendas");
+            }
         }
 
         public async Task UpdateAsync(Seller obj)
