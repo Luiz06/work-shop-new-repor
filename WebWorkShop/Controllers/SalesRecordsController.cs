@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebWorkShop.Models.ViewModels;
 using WebWorkShop.Services;
 
 namespace WebWorkShop.Controllers
@@ -24,22 +25,46 @@ namespace WebWorkShop.Controllers
         public async Task<IActionResult> Index()
         {
 
-           
-            return View();
+            var list = await _salesRecordsService.FindAllAsync();
+            return View(list);
+
+
         }
 
-        public async Task<IActionResult> SimpleSearch()
+        public async Task<IActionResult> SimpleSearch(DateTime? minDate, DateTime? maxDate)
+        {
+            if(!minDate.HasValue)
+            {
+                minDate = new DateTime(DateTime.Now.Year, 1, 1);
+            }
+            if(!maxDate.HasValue)
+            {
+                maxDate = DateTime.Now;
+            }
+            ViewData["minDate"] = minDate.Value.ToString("yyyy-MM-dd");
+            ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
+
+            var result = await _salesRecordsService.FindAByDateAsync(minDate, maxDate);
+            return View(result);
+        }
+
+        public async Task<IActionResult> GroupSearch(DateTime? minDate, DateTime? maxDate)
         {
 
 
-            return View();
-        }
+            if (!minDate.HasValue)
+            {
+                minDate = new DateTime(DateTime.Now.Year, 1, 1);
+            }
+            if (!maxDate.HasValue)
+            {
+                maxDate = DateTime.Now;
+            }
+            ViewData["minDate"] = minDate.Value.ToString("yyyy-MM-dd");
+            ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
 
-        public async Task<IActionResult> GroupSearch()
-        {
-
-           
-            return View();
+            var result = await _salesRecordsService.FindAByDateGroupAsync(minDate, maxDate);
+            return View(result);
         }
     }
 }

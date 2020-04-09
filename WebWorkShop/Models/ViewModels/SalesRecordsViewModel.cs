@@ -10,8 +10,8 @@ namespace WebWorkShop.Models.ViewModels
     {
 
         public Seller Seller { get; set; }
-        public ICollection<Department> Departments { get; set; }
-        public ICollection<SalesRecord> MyProperty { get; set; }
+        public Department Departments { get; set; }
+        public ICollection<SalesRecord> SalesRecords { get; set; }
 
     }
 }

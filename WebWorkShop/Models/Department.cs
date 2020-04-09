@@ -8,7 +8,7 @@ namespace WebWorkShop.Models
     public class Department
     {
         public int Id{ get; set; }
-        [Display(Name = "Name")]
+        [Display(Name = "Name department")]
         public string Name { get; set; }
         public ICollection<Seller> Sellers { get; set; } = new List<Seller>();
 

@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 using WebWorkShop.Models;
 using WebWorkShop.Data;
 using WebWorkShop.Services;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace WebWorkShop
 {
@@ -51,6 +53,15 @@ namespace WebWorkShop
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService)
         {
+            var enUS = new CultureInfo("pt-BR");
+            var localization = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(enUS),
+                SupportedCultures = new List<CultureInfo> { enUS },
+                SupportedUICultures = new List<CultureInfo> { enUS }
+            };
+            app.UseRequestLocalization(localization);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

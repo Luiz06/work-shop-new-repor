@@ -11,6 +11,7 @@ namespace WebWorkShop.Models
 
         [Required(ErrorMessage = "{0} required")]
         [StringLength(50, MinimumLength = 5, ErrorMessage = "{0} size should between {2} and max {1}")]
+        [Display(Name = "Name Seller")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "{0} required")]

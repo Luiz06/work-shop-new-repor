@@ -1,7 +1,65 @@
-﻿
+﻿@model IEnumerable<SalesRecord>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Sales Records";
 }
 
-<h2>Index</h2>
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="SimpleSearch" class="form-horizontal">
+            <fieldset>
+                <legend>Simple Search</legend>
+                <div class="form-group">
+                    <label for="minDate" class="col-lg-2 control-label">Min date</label>
+                    <div class="col-lg-10">
+                        <input type="date" name="minDate" class="form-control" />
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="maxDate" class="col-lg-2 control-label">Max date</label>
+                    <div class="col-lg-10">
+                        <input type="date" name="maxDate" class="form-control" />
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="submit" class="btn btn-primary">Subimit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="GroupSearch" class="form-horizontal">
+            <fieldset>
+                <legend>Group Search</legend>
+                <div class="form-group">
+                    <label for="minDate" class="col-lg-2 control-label">Min date</label>
+                    <div class="col-lg-10">
+                        <input type="date" name="minDate" class="form-control" />
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="maxDate" class="col-lg-2 control-label">Max date</label>
+                    <div class="col-lg-10">
+                        <input type="date" name="maxDate" class="form-control" />
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="submit" class="btn btn-primary">Subimit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
 
